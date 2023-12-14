@@ -1,0 +1,28 @@
+[project]
+name = "optops"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "mymissuniverse", email = "mymissuniverse@icloud.com" }
+]
+dependencies = [
+    "numpy>=1.24.4",
+    "mlflow>=2.9.2",
+    "deap>=1.4.1",
+    "plotly>=5.18.0",
+    "wheel>=0.42.0",
+    "setuptools>=69.0.2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true

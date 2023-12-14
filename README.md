@@ -4,7 +4,7 @@ Genetic Algorithm
 ```bash
 cd optops
 rye sync
-python src/__init__.py
+python src/optops/__init__.py
 ```
 
 OptOps

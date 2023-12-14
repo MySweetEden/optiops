@@ -12,7 +12,7 @@ OptOps
 mlflow ui
 ```
 
-If mlflow command does not work, you need to set pass.
+If mlflow command does not work, you need to set path.
 ```bash
 -bash: export PATH=$PATH:/Users/{...}/optops/.venv/bin 
 ```

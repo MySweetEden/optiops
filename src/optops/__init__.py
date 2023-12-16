@@ -92,7 +92,7 @@ toolbox.register("mate", cxSet)
 toolbox.register("mutate", mutSet)
 toolbox.register("select", tools.selNSGA2)
 
-def plot_convergence_graph(gen, max):
+def make_convergence_graph(gen, max):
     transposed_max = np.array(max).T
     # Create traces
     fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -106,7 +106,8 @@ def plot_convergence_graph(gen, max):
                 ), secondary_y=True)
     # Add figure title
     fig.update_layout(
-        title_text="Convergence Graph"
+        title_text="Convergence Graph",
+        height=600, width=800
     )
     # Set x-axis title
     fig.update_xaxes(title_text="Generation")
@@ -114,7 +115,8 @@ def plot_convergence_graph(gen, max):
     # Set y-axes titles
     fig.update_yaxes(title_text="Fitness 1", secondary_y=False)
     fig.update_yaxes(title_text="Fitness 2", secondary_y=True)
-    fig.show()
+    
+    return fig
 
 def main():
     t_delta = datetime.timedelta(hours=9)
@@ -153,7 +155,9 @@ def main():
         mlflow.log_metric('max1', max[NGEN][0])
         mlflow.log_metric('max2', max[NGEN][1])
 
-        plot_convergence_graph(gen, max)
+        fig = make_convergence_graph(gen, max)
+        fig.show()
+        mlflow.log_figure(fig, f'figure_{experiment_name}.png')
 
 if __name__ == "__main__":
     main()

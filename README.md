@@ -9,7 +9,7 @@ python src/optops/__init__.py
 
 OptOps
 ```bash
-mlflow ui
+python -m mlflow ui
 ```
 
 If mlflow command does not work, you need to set path.
